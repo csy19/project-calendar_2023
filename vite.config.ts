@@ -1,7 +1,8 @@
+import vue from '@vitejs/plugin-vue';
 import { crx, defineManifest } from '@crxjs/vite-plugin';
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
-import vue from '@vitejs/plugin-vue';
+const root = 'src';
 
 const manifest = defineManifest({
   manifest_version: 3,
@@ -17,19 +18,29 @@ const manifest = defineManifest({
 });
 
 // https://vitejs.dev/config/
+
 export default defineConfig({
+  base: '/',
+  root: root,
+  publicDir: 'public',
+  appType: 'mpa',
+  plugins: [vue(), crx({ manifest })],
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
     },
   },
   build: {
+    outDir: '../dist',
+
     rollupOptions: {
+      external: ['vue'],
       input: {
-        yakuyoke: 'src/pages/yakuyoke/index.html',
-        kaiun: 'src/pages/yakuyoke/index.html',
+        index: resolve(__dirname, root, 'index.html'),
+        yakuyoke: resolve(__dirname, root, 'yakuyoke/index.html'),
+        kaiun: resolve(__dirname, root, 'kaiun/index.html'),
       },
+      output: {},
     },
   },
-  plugins: [vue(), crx({ manifest })],
 });
