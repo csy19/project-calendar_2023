@@ -34,7 +34,6 @@ export default defineConfig({
     outDir: '../dist',
 
     rollupOptions: {
-      external: ['vue'],
       input: {
         index: resolve(__dirname, root, 'index.html'),
         yakuyoke: resolve(__dirname, root, 'yakuyoke/index.html'),
