@@ -1,19 +1,15 @@
+<script setup>
+import PageLayout from '@/components/layout/PageLayout.vue';
+const props = {
+  titleImagePath: '/img02.png',
+  titleImageAlt: '超強運守護神社',
+  backgroundImagePath: '/morishio.png',
+  backgroundImageAlt: '盛り塩の画像',
+};
+</script>
+
 <template>
-  <div class="souken">厄除け</div>
+  <PageLayout v-bind="props" />
 </template>
 
-<style lang="scss">
-.title {
-  font-size: 24px;
-}
-.icon-image {
-  width: 100px;
-  height: auto;
-  margin: 0 auto;
-  img {
-    width: 100%;
-  }
-}
-.app-text {
-}
-</style>
+<style lang="scss" scoped></style>
