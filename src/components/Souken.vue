@@ -9,12 +9,12 @@ const openNewTabs = () => {
 
     // アクティブなタブの左に新しいタブを開く
     chrome.tabs.create({
-      url: '/yakuyoke/index.html/',
+      url: '/yakuyoke/index.html',
       index: currentIndex,
       active: false,
     });
     chrome.tabs.create({
-      url: '/kaiun/index.html/',
+      url: '/kaiun/index.html',
       index: currentIndex + 2,
       active: false,
     });
